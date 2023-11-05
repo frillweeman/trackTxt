@@ -2,6 +2,22 @@
 
 Text notifications for approaching trains.
 
+## Prerequisites
+1. Python
+2. [ATCS Monitor](https://groups.io/g/ATCSMonitor)
+
+## Setup and Running
+
+1. Clone this repository to your machine.
+2. `cd` into `src/`
+3. Run `pip install -r requirements.txt`
+4. Open ATCS Monitor, and view the dispatch display for the subdivison you'd like to monitor.
+5. Take a full-screen screenshot, and upload it to [https://pixspy.com/](https://pixspy.com/). Use the site to identify pixel coordinates of the signals/tracks you'd like to monitor.
+6. Create your own version of `BNSF_BrushSub.py` that uses the pixel values you identified.
+7. To set up texting, create a free [Twilio](https://www.twilio.com/en-us) account. Set up SMS on their site, which requires getting a phone number from them (free w/ trial credits).
+8. Creat a copy of .env.example in the same directory, except name it `.env`. Replace the placeholder values with the actual values from your Twilio account.
+9. Make sure nothing is blocking the dispatcher display on your computer, since it works based on automatic screenshots. Then, run `python3 YourFilename.py`, where the filename is what you copied from `BNSF_BrushSub.py`.
+
 ## How it Works
 
 1. Takes screenshots of ATCS monitor at regular intervals
