@@ -1,6 +1,6 @@
 from PIL import Image
 from texter import sendTextAlert
-import time # temp
+import time
 
 
 WAITING = "WAITING"
@@ -36,14 +36,6 @@ def analyze(imagePath):
   signal_nb_riverCrossing = px[615, 670]
   signal_nb_postRiver = px[712, 670]
 
-  # track_csxYardA = px[426, 605]
-  # track_csxPostYardA = px[470, 589]
-  # track_csxYardB = px[431, 589]
-  # track_csxPostYardB = px[463, 580]
-  # track_csxPreRiver = px[518, 573]
-  # track_csxRiverJct = px[562, 573]
-  # track_csxRiverCrossing = px[600, 573]
-  # track_csxJctToNash = px[638, 573]
   track_csxLocal = px[646, 678]
 
   nbTrainApproachingFromCSXYard = signalIndication(signal_nb_csxYardA) == "GREEN" or signalIndication(signal_nb_csxYardB) == "GREEN"
@@ -72,18 +64,3 @@ def analyze(imagePath):
     print("reason: " + reason)
 
   state = newState
-
-# test data
-analyze("testImages/1.PNG")
-time.sleep(1)
-analyze("testImages/2.PNG")
-time.sleep(1)
-analyze("testImages/3.PNG")
-time.sleep(1)
-analyze("testImages/4.PNG")
-time.sleep(1)
-analyze("testImages/5.PNG")
-time.sleep(1)
-analyze("testImages/6.PNG")
-
-# TODO: take screenshots of the ATCS screen and analyze them
